@@ -31,7 +31,7 @@ $ az login
 ### Create network resources
 
 ```console
-$ cd examples/azure/network
+$ cd azure/network
 
 # Generate a test key-pair
 $ ssh-keygen -b 2048 -t rsa -f ./example_key -q -N ""
@@ -43,7 +43,7 @@ $ ssh-add example_key
 
 # Optionally, you may want to create a file named `additional_public_keys` that contains multiple ssh public keys (one key per line) to allow other admins to access nodes created by the following `terraform apply`.
 # the file should look like below
-# cat examples/azure/network/additional_public_keys
+# cat azure/network/additional_public_keys
 # ssh-rsa AAAAB3Nza..... admin1
 # ssh-rsa...... admin2
 
@@ -81,7 +81,7 @@ For more information on Cassy, please refer to [CassySetup](../../docs/CassySetu
 Now it's ready to run the terraform commands:
 
 ```console
-$ cd examples/azure/cassandra
+$ cd azure/cassandra
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
@@ -92,7 +92,7 @@ Please make sure to start all the Cassandra nodes since Cassandra doesn't start 
 ### Create Scalar DL resources
 
 ```console
-$ cd examples/azure/scalardl
+$ cd azure/scalardl
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
@@ -101,7 +101,7 @@ $ terraform apply -var-file example.tfvars
 ### Create Monitor resources
 
 ```console
-$ cd examples/azure/monitor
+$ cd azure/monitor
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
@@ -135,8 +135,8 @@ location = West US
 network_cidr = 10.42.0.0/16
 network_id = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/tei-azure-1rpvoeq/providers/Microsoft.Network/virtualNetworks/tei-azure-1rpvoeq
 network_name = tei-azure-1rpvoeq
-private_key_path = /Users/tei/work/src/scalar/scalar-terraform-release/examples/azure/network/example_key
-public_key_path = /Users/tei/work/src/scalar/scalar-terraform-release/examples/azure/network/example_key.pub
+private_key_path = /Users/tei/work/src/scalar/scalar-terraform-examples/azure/network/example_key
+public_key_path = /Users/tei/work/src/scalar/scalar-terraform-examples/azure/network/example_key.pub
 subnet_map = {
   "cassandra" = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/tei-azure-1rpvoeq/providers/Microsoft.Network/virtualNetworks/tei-azure-1rpvoeq/subnets/cassandra"
   "private" = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/tei-azure-1rpvoeq/providers/Microsoft.Network/virtualNetworks/tei-azure-1rpvoeq/subnets/private"

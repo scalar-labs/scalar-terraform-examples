@@ -33,7 +33,7 @@ $ aws configure --profile scalar
 ### Create network resources
 
 ```console
-$ cd examples/aws/network
+$ cd aws/network
 
 # Generate a test key-pair
 $ ssh-keygen -b 2048 -t rsa -f ./example_key -q -N ""
@@ -45,7 +45,7 @@ $ ssh-add example_key
 
 # Optionally, you may want to create a file named `additional_public_keys` that contains multiple ssh public keys (one key per line) to allow other admins to access nodes created by the following `terraform apply`.
 # the file should look like below
-# cat examples/aws/network/additional_public_keys
+# cat aws/network/additional_public_keys
 # ssh-rsa AAAAB3Nza..... admin1
 # ssh-rsa...... admin2
 
@@ -81,7 +81,7 @@ For more information on Cassy, please refer to [CassySetup](../../docs/CassySetu
 Then run the terraform command:
 
 ```console
-$ cd examples/aws/cassandra
+$ cd aws/cassandra
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
@@ -92,7 +92,7 @@ Please make sure to start all the Cassandra nodes since Cassandra doesn't start 
 ### Create Scalar DL resources
 
 ```console
-$ cd examples/aws/scalardl
+$ cd aws/scalardl
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
@@ -101,7 +101,7 @@ $ terraform apply -var-file example.tfvars
 ### Create Monitor resources
 
 ```console
-$ cd examples/aws/monitor
+$ cd aws/monitor
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
@@ -140,7 +140,7 @@ network_cidr = 10.42.0.0/16
 network_dns = Z08111302BU37G0O8OMMY
 network_id = vpc-08f36c547a1aca222
 network_name = example-aws-0j5y83k
-private_key_path = /Users/scalar/scalar-terraform/examples/aws/network/example_key
+private_key_path = /Users/scalar/scalar-terraform-examples/aws/network/example_key
 subnet_map = {
   "cassandra" = [
     "subnet-01faef24111cafcc5",
