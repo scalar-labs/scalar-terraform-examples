@@ -1,0 +1,41 @@
+name: Terraform test for Network example of Azure
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - azure/network/**
+  push:
+    branches:
+      - master
+    paths:
+      - azure/network/**
+
+jobs:
+  terraform:
+    name: Terraform
+    runs-on: ubuntu-latest
+    env:
+      TF_VERSION: 0.12.29
+    defaults:
+      run:
+        working-directory: ./azure/network
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Terraform Format
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate -no-color

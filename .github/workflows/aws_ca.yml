@@ -1,0 +1,41 @@
+name: Terraform test for CA example of AWS
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - aws/ca/**
+  push:
+    branches:
+      - master
+    paths:
+      - aws/ca/**
+
+jobs:
+  terraform:
+    name: Terraform
+    runs-on: ubuntu-latest
+    env:
+      TF_VERSION: 0.12.29
+    defaults:
+      run:
+        working-directory: ./aws/ca
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Terraform Format
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate -no-color
