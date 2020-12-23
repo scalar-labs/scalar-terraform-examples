@@ -3,12 +3,12 @@ name: Terraform test for CA example of AWS
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - aws/ca/**
   push:
     branches:
-      - master
+      - main
     paths:
       - aws/ca/**
 

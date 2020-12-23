@@ -3,12 +3,12 @@ name: Terraform test for Scalar DL example of AWS
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - aws/scalardl/**
   push:
     branches:
-      - master
+      - main
     paths:
       - aws/scalardl/**
 

@@ -3,12 +3,12 @@ name: Terraform test for Kubernetes example of Azure
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - azure/kubernetes/**
   push:
     branches:
-      - master
+      - main
     paths:
       - azure/kubernetes/**
 
@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1

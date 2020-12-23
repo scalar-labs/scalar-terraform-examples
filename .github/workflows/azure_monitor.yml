@@ -3,12 +3,12 @@ name: Terraform test for Monitor example of Azure
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - azure/monitor/**
   push:
     branches:
-      - master
+      - main
     paths:
       - azure/monitor/**
 

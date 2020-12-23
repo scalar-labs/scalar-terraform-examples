@@ -3,12 +3,12 @@ name: Terraform test for Network example of Azure
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - azure/network/**
   push:
     branches:
-      - master
+      - main
     paths:
       - azure/network/**
 

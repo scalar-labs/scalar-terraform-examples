@@ -3,12 +3,12 @@ name: Terraform test for Cassandra example of Azure
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - azure/cassandra/**
   push:
     branches:
-      - master
+      - main
     paths:
       - azure/cassandra/**
 

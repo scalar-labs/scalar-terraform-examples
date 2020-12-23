@@ -3,12 +3,12 @@ name: Terraform test for Network example of AWS
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - aws/network/**
   push:
     branches:
-      - master
+      - main
     paths:
       - aws/network/**
 

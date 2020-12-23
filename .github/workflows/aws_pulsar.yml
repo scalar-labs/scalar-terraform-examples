@@ -3,12 +3,12 @@ name: Terraform test for Pulsar example of AWS
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - aws/pulsar/**
   push:
     branches:
-      - master
+      - main
     paths:
       - aws/pulsar/**
 

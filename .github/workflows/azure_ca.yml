@@ -3,12 +3,12 @@ name: Terraform test for CA example of Azure
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - azure/ca/**
   push:
     branches:
-      - master
+      - main
     paths:
       - azure/ca/**
 

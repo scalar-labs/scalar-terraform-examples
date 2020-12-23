@@ -3,12 +3,12 @@ name: Terraform test for Cassandra example of AWS
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - aws/cassandra/**
   push:
     branches:
-      - master
+      - main
     paths:
       - aws/cassandra/**
 
