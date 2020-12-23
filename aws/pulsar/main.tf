@@ -1,5 +1,5 @@
 module "pulsar" {
-  source = "git@github.com:scalar-labs/scalar-terraform.git//modules/aws/pulsar?ref=master"
+  source = "git::https://github.com/scalar-labs/scalar-terraform.git//modules/aws/pulsar?ref=master"
 
   # Required Variables (Use network remote state)
   network = local.network
