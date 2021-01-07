@@ -107,10 +107,12 @@ Please make sure to start all the Cassandra nodes since Cassandra doesn't start 
 
 #### Cosmos DB
 
-To create a Cosmos DB account on your Azure account, please just run the follwoing command.
+To create a Cosmos DB account on your Azure account, please just run the following command.
 
 ```console
 $ cd examples/azure/cosmosdb
+
+$ terraform init
 $ terraform apply
 ```
 
