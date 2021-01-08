@@ -35,7 +35,7 @@ $ az login
 
 First you need to choose what database you use as a backend. This example supports two options: Cassandra and Cosmos DB.
 
-If you choose Cosmos DB, please update `examples/azure/network/example.tfvars` before creating network resources.
+If you choose Cosmos DB, please update `azure/network/example.tfvars` before creating network resources.
 This enables Cosmos DB endpoints in the subnets where Scalar DL will be deployed to.
 
 ```terraform
@@ -118,8 +118,8 @@ $ terraform apply
 
 ### Create Scalar DL resources
 
-If you chose Cosmos DB, please uncomment the following line in `examples/azure/scalardl/example.tfvars`.
-The information needed to connect to the Cosmos DB is fetched from the state in `examples/azure/cosmosdb`.
+If you chose Cosmos DB, please uncomment the following line in `azure/scalardl/example.tfvars`.
+The information needed to connect to the Cosmos DB is fetched from the state in `azure/cosmosdb`.
 
 ```terraform
   # database = "cosmos"
