@@ -71,7 +71,7 @@ $ terraform apply -var-file example.tfvars
 
 #### Cassandra
 
-Before creating Cassandra resources with `terraform apply`, you probably need to configure for Cassy to manage backups of Cassandra data. 
+Before creating Cassandra resources with `terraform apply`, you probably need to configure for Cassy to manage backups of Cassandra data.
 
 The first thing you need to do for Cassy is create a storage account in the same resource group as the network resource created in the previous section and create a blob type container in the storage account.
 
@@ -110,7 +110,7 @@ Please make sure to start all the Cassandra nodes since Cassandra doesn't start 
 To create a Cosmos DB account on your Azure account, please just run the following command.
 
 ```console
-$ cd examples/azure/cosmosdb
+$ cd azure/cosmosdb
 
 $ terraform init
 $ terraform apply
