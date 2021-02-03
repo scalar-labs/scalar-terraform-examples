@@ -6,8 +6,6 @@ kubernetes_cluster = {
   # cluster_enabled_log_types            = ""
   # cluster_log_retention_in_days        = "90"
   # cluster_log_kms_key_id               = ""
-  # cluster_endpoint_private_access      = "true"
-  # cluster_endpoint_public_access       = "true"
   # cluster_endpoint_public_access_cidrs = "0.0.0.0/0"
   # cluster_create_timeout               = "30m"
   # cluster_delete_timeout               = "15m"
@@ -16,6 +14,7 @@ kubernetes_cluster = {
   # cluster_encryption_config_kms_key_id = ""
   # use_fargate_profile                  = "false"
   # manage_aws_auth                      = "true"
+  # public_cluster_enabled               = "true"
 }
 
 kubernetes_node_groups = {
