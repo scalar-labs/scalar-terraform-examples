@@ -18,6 +18,6 @@ output "envoy_listen_port" {
   value = module.scalardl.envoy_listen_port
 }
 
-utput "inventory_ini" {
+output "inventory_ini" {
   value = module.scalardl.inventory_ini
 }
