@@ -57,3 +57,7 @@ output "ssh_config" {
 output "internal_domain" {
   value = module.network.internal_domain
 }
+
+output "inventory_ini" {
+  value = module.network.inventory_ini
+}
