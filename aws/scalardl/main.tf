@@ -1,5 +1,5 @@
 module "scalardl" {
-  source = "git::https://github.com/scalar-labs/scalar-terraform.git//modules/aws/scalardl?ref=master"
+  source = "git::https://github.com/scalar-labs/scalar-terraform.git//modules/aws/scalardl?ref=test-goss"
 
   # Required Variables (Use remote state)
   network   = local.network

@@ -1,5 +1,5 @@
 module "monitor" {
-  source = "git::https://github.com/scalar-labs/scalar-terraform.git//modules/aws/monitor?ref=master"
+  source = "git::https://github.com/scalar-labs/scalar-terraform.git//modules/aws/monitor?ref=test-goss"
 
   # Required Variables (Use remote state)
   network   = local.network
