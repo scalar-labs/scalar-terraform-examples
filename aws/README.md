@@ -212,8 +212,8 @@ $ ssh -F ssh.cfg scalar-blue-1.internal.scalar-labs.com
 $ ssh -F ssh.cfg scalar-blue-2.internal.scalar-labs.com
 $ ssh -F ssh.cfg scalar-blue-3.internal.scalar-labs.com
 
-$ ssh -F ssh.cfg cassy.internal.scalar-labs.com
-$ ssh -F ssh.cfg reaper.internal.scalar-labs.com
+$ ssh -F ssh.cfg cassy-1.internal.scalar-labs.com
+$ ssh -F ssh.cfg reaper-1.internal.scalar-labs.com
 
 $ ssh -F ssh.cfg envoy-1.internal.scalar-labs.com
 $ ssh -F ssh.cfg envoy-2.internal.scalar-labs.com
