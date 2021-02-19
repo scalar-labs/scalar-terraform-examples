@@ -61,3 +61,7 @@ output "internal_domain" {
 output "custom_tags" {
   value = var.custom_tags
 }
+
+output "inventory_ini" {
+  value = module.network.inventory_ini
+}
