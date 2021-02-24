@@ -8,7 +8,7 @@ variable "base" {
 }
 
 variable "monitor" {
-  type    = map
+  type    = map(string)
   default = {}
 }
 

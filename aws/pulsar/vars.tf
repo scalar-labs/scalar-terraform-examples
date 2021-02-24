@@ -8,19 +8,19 @@ variable "base" {
 }
 
 variable "bookie" {
-  type        = map
+  type        = map(string)
   default     = {}
   description = "The bookie settings of Pulsar cluster"
 }
 
 variable "broker" {
-  type        = map
+  type        = map(string)
   default     = {}
   description = "The broker settings of Pulsar cluster"
 }
 
 variable "zookeeper" {
-  type        = map
+  type        = map(string)
   default     = {}
   description = "The zookeeper settings of Pulsar cluster"
 }
