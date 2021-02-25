@@ -8,16 +8,16 @@ variable "base" {
 }
 
 variable "cassandra" {
-  type    = map(any)
+  type    = map(string)
   default = {}
 }
 
 variable "cassy" {
-  type    = map(any)
+  type    = map(string)
   default = {}
 }
 
 variable "reaper" {
-  type    = map(any)
+  type    = map(string)
   default = {}
 }
