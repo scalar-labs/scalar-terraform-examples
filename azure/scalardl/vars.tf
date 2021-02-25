@@ -4,11 +4,11 @@ variable "base" {
 }
 
 variable "scalardl" {
-  type    = map
+  type    = map(string)
   default = {}
 }
 
 variable "envoy" {
-  type    = map
+  type    = map(string)
   default = {}
 }

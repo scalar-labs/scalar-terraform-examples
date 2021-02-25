@@ -4,7 +4,7 @@ variable "base" {
 }
 
 variable "monitor" {
-  type    = map
+  type    = map(string)
   default = {}
 }
 
@@ -18,5 +18,6 @@ variable "targets" {
 
 # For Alerting Add Slack Webhook
 variable "slack_webhook_url" {
+  type    = string
   default = ""
 }
