@@ -4,6 +4,6 @@ variable "region" {
 }
 
 variable "ca" {
-  type    = map
+  type    = map(string)
   default = {}
 }

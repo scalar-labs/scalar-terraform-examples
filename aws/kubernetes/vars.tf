@@ -4,12 +4,12 @@ variable "region" {
 }
 
 variable "network" {
-  type    = map
+  type    = map(string)
   default = {}
 }
 
 variable "kubernetes_cluster" {
-  type    = map
+  type    = map(string)
   default = {}
 }
 
@@ -22,6 +22,6 @@ variable "kubernetes_node_groups" {
 }
 
 variable "custom_tags" {
-  type    = map
+  type    = map(string)
   default = {}
 }
