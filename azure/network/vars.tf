@@ -19,7 +19,7 @@ variable "additional_public_keys_path" {
 variable "internal_domain" {}
 
 variable "network" {
-  type    = map
+  type    = map(string)
   default = {}
 }
 
