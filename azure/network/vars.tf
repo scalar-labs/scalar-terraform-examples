@@ -1,7 +1,13 @@
 # General Settings
 variable "name" {}
 
-variable "region" {}
+variable "base" {
+  default = "default"
+}
+
+variable "region" {
+  default = "japaneast"
+}
 
 variable "locations" {
   type    = list(string)
