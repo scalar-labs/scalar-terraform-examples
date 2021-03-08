@@ -1,5 +1,7 @@
 region = "ap-northeast-1"
 
+base = "default" # bai, chiku, sho
+
 name = "example-aws" # maximum of 13 characters
 
 locations = [

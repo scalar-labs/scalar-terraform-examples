@@ -1,5 +1,7 @@
 name = "example-azure" # maximum of 82 characters
 
+base = "default" # bai, chiku, sho
+
 region = "japaneast"
 
 # locations = ["1","2","3"]
