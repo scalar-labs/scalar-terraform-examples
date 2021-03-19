@@ -7,24 +7,17 @@ scalardl = {
   # blue_image_tag                      = "2.1.0"
   # blue_image_name                     = "ghcr.io/scalar-labs/scalar-ledger"
   # blue_discoverable_by_envoy          = "true"
+  # blue_container_env_file             = "scalardl_blue_container.env"
   # blue_enable_accelerated_networking  = "false"
   # green_resource_count                = "0"
   # green_image_tag                     = "2.1.0"
   # green_image_name                    = "ghcr.io/scalar-labs/scalar-ledger"
   # green_discoverable_by_envoy         = "false"
+  # green_container_env_file            = "scalardl_green_container.env"
   # green_enable_accelerated_networking = "false"
+  # port                                = "50051"
+  # privileged_port                     = "50052"
   # enable_tdagent                      = "true"
-
-  ### Cassandra
-  # database                            = "cassandra"
-  # database_contact_points             = "cassandra-lb.internal.scalar-labs.com"
-  # database_contact_port               = 9042
-  # database_username                   = "cassandra"
-  # database_password                   = "cassandra"
-
-  ### Cosmos DB
-  # database                            = "cosmos"
-
   # cassandra_replication_factor        = "3"
 }
 
