@@ -7,6 +7,6 @@ module "scalardl" {
 
   # Optional Variables
   base     = var.base
+  scalardl = var.scalardl
   envoy    = var.envoy
-  scalardl = local.scalardl
 }
