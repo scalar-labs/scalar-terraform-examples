@@ -38,6 +38,6 @@ envoy = {
   # tag                       = "v1.14.1"
   # image                     = "envoyproxy/envoy"
   # tls                       = "false"
-  # cert_auto_gen             = "true"
+  # cert_auto_gen             = "false"
   # custom_config_path        = ""
 }
