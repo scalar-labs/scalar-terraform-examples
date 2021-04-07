@@ -13,7 +13,7 @@ scalardl = {
   # green_image_name                    = "ghcr.io/scalar-labs/scalar-ledger"
   # green_discoverable_by_envoy         = "false"
   # green_enable_accelerated_networking = "false"
-  # container_env_file                  = "scalardl_container.env"
+  container_env_file = "example.scalardl_container.env"
   # enable_tdagent                      = "true"
   # cassandra_replication_factor        = "3"
 }
