@@ -3,7 +3,6 @@ module "scalardl" {
 
   # Required Variables (Use remote state)
   network   = local.network
-  cassandra = local.cassandra
 
   # Optional Variables
   base     = var.base
