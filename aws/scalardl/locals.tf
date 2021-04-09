@@ -22,7 +22,6 @@ locals {
     green_subnet_ids   = join(",", data.terraform_remote_state.network.outputs.subnet_map["scalardl_green"])
   }
 
-  database = lookup(var.scalardl, "database", "cassandra")
 
   custom_tags = data.terraform_remote_state.network.outputs.custom_tags
 }
