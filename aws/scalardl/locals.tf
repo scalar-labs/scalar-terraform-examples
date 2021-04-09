@@ -22,6 +22,5 @@ locals {
     green_subnet_ids   = join(",", data.terraform_remote_state.network.outputs.subnet_map["scalardl_green"])
   }
 
-
   custom_tags = data.terraform_remote_state.network.outputs.custom_tags
 }
