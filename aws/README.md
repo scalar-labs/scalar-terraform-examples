@@ -14,9 +14,12 @@ This example will deploy a simple Scalar DL environment in the Tokyo region with
 * An AWS VPC with a NAT gateway
 * DNS Zone for internal host lookup
 * 3 Scalar DL instances
-* 3 Cassandra instances
-* 1 Cassy instance
-* 1 Reaper instance
+* With Cassandra option (default):
+  * 3 Cassandra instances
+  * 1 Cassy instance
+  * 1 Reaper instance
+* With DynamoDB option:
+  * DynamoDB tables in a specified region
 * 3 Envoy instances with a network load balancer (public)
 * 1 Bastion instance with a public IP
 * 1 Monitor instance
@@ -57,7 +60,9 @@ $ terraform apply -var-file example.tfvars
 
 To add tags to resources you create with scalar-terraform, please refer to [custom tags](https://github.com/scalar-labs/scalar-terraform/blob/master/docs/CustomTags.md).
 
-### Create Cassandra resources
+### Create database resources
+
+#### Cassandra
 
 To use Cassy to backup Cassandra data (enabled by default), you need to create an S3 bucket manually before creating resources with `scalar-terraform`. Please update the `example.tfvars` file to specify the bucket name.
 
@@ -89,11 +94,49 @@ $ terraform apply -var-file example.tfvars
 
 Please make sure to start all the Cassandra nodes since Cassandra doesn't start on the initial boot by default.
 
+#### DyanmoDB
+
+If you plan to use DynamoDB, there is no need to create DynamoDB resources in advance before creating Scalar DL resources. If you configure the `scalardl` module to use DyanmoDB, tables will be created in the specified region.
+
 ### Create Scalar DL resources
+
+Before running the terraform command to create Scalar DL resources, you need to prepare an environment file for the container configuration which will be loaded by `docker-compose`.
+The default file name is `scalardl_conatainer.env`. Please copy the example file to that name.
 
 ```console
 $ cd aws/scalardl
+$ cp example.scalardl_container.env scalardl_conatainer.env
+```
 
+Then, update the contents of the file.
+
+* Cassandra
+
+    To use Cassandra, you can keep the contents as long as you use the default settings.
+
+    ```
+    SCALAR_DB_STORAGE=cassandra
+    SCALAR_DB_CONTACT_POINTS=cassandra-lb.internal.scalar-labs.com
+    SCALAR_DB_CONTACT_PORT=9042
+    SCALAR_DB_USERNAME=cassandra
+    SCALAR_DB_PASSWORD=cassandra
+    ```
+
+* DynamoDB
+
+    To use DynamoDB, you need to get an access key ID on the AWS console. Please specify the access key ID as `SCALAR_DB_USERNAME` and the secret access key as `SCALAR_DB_PASSWORD`.
+    `SCALAR_DB_STORAGE` must be `dynamo`, and specify the region in `SCALAR_DB_CONTACT_POINTS`.
+
+    ```
+    SCALAR_DB_STORAGE=dynamo
+    SCALAR_DB_CONTACT_POINTS=us-east-1
+    SCALAR_DB_USERNAME=<access key ID>
+    SCALAR_DB_PASSWORD=<secret access key>
+    ```
+
+Now it's ready to run `terraform apply`.
+
+```console
 $ terraform init
 $ terraform apply -var-file example.tfvars
 ```
