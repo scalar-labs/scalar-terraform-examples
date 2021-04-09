@@ -187,13 +187,7 @@ user_name = centos
 
 ```
 $ terraform output
-cassandra_provision_ids = [
-  "4019088576544490630",
-  "656319024837932240",
-  "2469094098071954264",
-]
 cassandra_resource_count = 3
-cassandra_start_on_initial_boot = false
 ```
 
 ### Scalar DL
