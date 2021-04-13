@@ -9,6 +9,10 @@
 *.tfvars
 !example.tfvars
 
+# .env files
+*.env
+!example.*.env
+
 # Plan files
 *.out
 *.tfplan

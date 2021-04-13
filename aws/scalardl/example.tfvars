@@ -13,12 +13,8 @@ scalardl = {
   # green_image_tag              = "2.1.0"
   # green_image_name             = "ghcr.io/scalar-labs/scalar-ledger"
   # green_discoverable_by_envoy  = "false"
+  container_env_file = "example.scalardl_container.env"
   # enable_tdagent               = "true"
-  # database                     = "cassandra"
-  # database_contact_points      = "cassandra-lb.internal.scalar-labs.com"
-  # database_contact_port        = 9042
-  # database_username            = "cassandra"
-  # database_password            = "cassandra"
   # cassandra_replication_factor = "3"
 }
 
@@ -26,8 +22,6 @@ envoy = {
   # resource_type             = "t3.medium"
   # resource_count            = "3"
   # resource_root_volume_size = "64"
-  # target_port               = "50051"
-  # privileged_target_port    = "50052"
   # listen_port               = "50051"
   # privileged_listen_port    = "50052"
   # enable_nlb                = "true"
