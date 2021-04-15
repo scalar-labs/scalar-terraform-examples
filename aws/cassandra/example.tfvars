@@ -6,7 +6,6 @@ cassandra = {
   # resource_type                = "t3.large"
   # resource_count               = "3"
   # resource_root_volume_size    = "64"
-  # encrypt_volume               = "true"
   # enable_data_volume           = "false"
   # data_use_local_volume        = "false"
   # data_remote_volume_size      = "64"
@@ -21,7 +20,7 @@ cassandra = {
 }
 
 cassy = {
-  # image_tag                 = "1.2.0"
+  # image_tag                 = "v1.0.0"
   # resource_type             = "t3.medium"
   # resource_count            = "1"
   # resource_root_volume_size = "64"
@@ -29,13 +28,12 @@ cassy = {
 
   # Required if resource_count > 0
   storage_base_uri = "s3://your-bucket-name"
-  storage_type     = "aws_s3"
 }
 
 reaper = {
   # resource_type             = "t3.medium"
   # resource_root_volume_size = "64"
-  # replication_factor        = "3"
+  # repliation_factor         = "3"
   # resource_count            = "1"
   # enable_tdagent            = "true"
   # cassandra_username        = ""

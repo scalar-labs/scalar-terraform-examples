@@ -17,7 +17,3 @@ output "envoy_dns" {
 output "envoy_listen_port" {
   value = module.scalardl.envoy_listen_port
 }
-
-output "inventory_ini" {
-  value = module.scalardl.inventory_ini
-}

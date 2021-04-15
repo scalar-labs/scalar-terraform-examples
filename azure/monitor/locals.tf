@@ -1,11 +1,10 @@
 locals {
   network = {
-    cidr      = data.terraform_remote_state.network.outputs.network_cidr
-    name      = data.terraform_remote_state.network.outputs.network_name
-    dns       = data.terraform_remote_state.network.outputs.dns_zone_id
-    id        = data.terraform_remote_state.network.outputs.network_id
-    region    = data.terraform_remote_state.network.outputs.region
-    locations = join(",", data.terraform_remote_state.network.outputs.locations)
+    cidr     = data.terraform_remote_state.network.outputs.network_cidr
+    name     = data.terraform_remote_state.network.outputs.network_name
+    dns      = data.terraform_remote_state.network.outputs.dns_zone_id
+    id       = data.terraform_remote_state.network.outputs.network_id
+    location = data.terraform_remote_state.network.outputs.location
 
     subnet_id = data.terraform_remote_state.network.outputs.subnet_map["private"]
     image_id  = data.terraform_remote_state.network.outputs.image_id
@@ -20,12 +19,12 @@ locals {
   }
 
   cassandra = {
-    resource_count = contains(var.targets, "cassandra") ? data.terraform_remote_state.cassandra[0].outputs.cassandra_resource_count : 0
+    resource_count = data.terraform_remote_state.cassandra.outputs.cassandra_resource_count
   }
 
   scalardl = {
-    blue_resource_count  = contains(var.targets, "scalardl") ? data.terraform_remote_state.scalardl[0].outputs.scalardl_blue_resource_count : 0
-    green_resource_count = contains(var.targets, "scalardl") ? data.terraform_remote_state.scalardl[0].outputs.scalardl_green_resource_count : 0
-    replication_factor   = contains(var.targets, "scalardl") ? data.terraform_remote_state.scalardl[0].outputs.scalardl_replication_factor : 0
+    blue_resource_count  = data.terraform_remote_state.scalardl.outputs.scalardl_blue_resource_count
+    green_resource_count = data.terraform_remote_state.scalardl.outputs.scalardl_green_resource_count
+    replication_factor   = data.terraform_remote_state.scalardl.outputs.scalardl_replication_factor
   }
 }

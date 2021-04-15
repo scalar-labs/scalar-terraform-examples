@@ -33,7 +33,7 @@ $ aws configure --profile scalar
 ### Create network resources
 
 ```console
-$ cd aws/network
+$ cd examples/aws/network
 
 # Generate a test key-pair
 $ ssh-keygen -b 2048 -t rsa -f ./example_key -q -N ""
@@ -45,7 +45,7 @@ $ ssh-add example_key
 
 # Optionally, you may want to create a file named `additional_public_keys` that contains multiple ssh public keys (one key per line) to allow other admins to access nodes created by the following `terraform apply`.
 # the file should look like below
-# cat aws/network/additional_public_keys
+# cat examples/aws/network/additional_public_keys
 # ssh-rsa AAAAB3Nza..... admin1
 # ssh-rsa...... admin2
 
@@ -81,7 +81,7 @@ For more information on Cassy, please refer to [CassySetup](../../docs/CassySetu
 Then run the terraform command:
 
 ```console
-$ cd aws/cassandra
+$ cd examples/aws/cassandra
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
@@ -92,7 +92,7 @@ Please make sure to start all the Cassandra nodes since Cassandra doesn't start 
 ### Create Scalar DL resources
 
 ```console
-$ cd aws/scalardl
+$ cd examples/aws/scalardl
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
@@ -101,7 +101,7 @@ $ terraform apply -var-file example.tfvars
 ### Create Monitor resources
 
 ```console
-$ cd aws/monitor
+$ cd examples/aws/monitor
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
@@ -140,7 +140,7 @@ network_cidr = 10.42.0.0/16
 network_dns = Z08111302BU37G0O8OMMY
 network_id = vpc-08f36c547a1aca222
 network_name = example-aws-0j5y83k
-private_key_path = /Users/scalar/scalar-terraform-examples/aws/network/example_key
+private_key_path = /Users/scalar/scalar-terraform/examples/aws/network/example_key
 subnet_map = {
   "cassandra" = [
     "subnet-01faef24111cafcc5",
@@ -175,7 +175,13 @@ user_name = centos
 
 ```
 $ terraform output
+cassandra_provision_ids = [
+  "4019088576544490630",
+  "656319024837932240",
+  "2469094098071954264",
+]
 cassandra_resource_count = 3
+cassandra_start_on_initial_boot = false
 ```
 
 ### Scalar DL
@@ -206,8 +212,8 @@ $ ssh -F ssh.cfg scalar-blue-1.internal.scalar-labs.com
 $ ssh -F ssh.cfg scalar-blue-2.internal.scalar-labs.com
 $ ssh -F ssh.cfg scalar-blue-3.internal.scalar-labs.com
 
-$ ssh -F ssh.cfg cassy-1.internal.scalar-labs.com
-$ ssh -F ssh.cfg reaper-1.internal.scalar-labs.com
+$ ssh -F ssh.cfg cassy.internal.scalar-labs.com
+$ ssh -F ssh.cfg reaper.internal.scalar-labs.com
 
 $ ssh -F ssh.cfg envoy-1.internal.scalar-labs.com
 $ ssh -F ssh.cfg envoy-2.internal.scalar-labs.com

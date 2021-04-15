@@ -4,20 +4,11 @@ variable "base" {
 }
 
 variable "monitor" {
-  type    = map(string)
+  type    = map
   default = {}
-}
-
-variable "targets" {
-  type = list(string)
-  default = [
-    "cassandra",
-    "scalardl",
-  ]
 }
 
 # For Alerting Add Slack Webhook
 variable "slack_webhook_url" {
-  type    = string
   default = ""
 }

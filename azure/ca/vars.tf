@@ -1,5 +1,5 @@
 # General Settings
 variable "ca" {
-  type    = map(string)
+  type    = map
   default = {}
 }

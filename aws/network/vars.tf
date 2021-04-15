@@ -3,10 +3,6 @@ variable "region" {
   default = "ap-northeast-1"
 }
 
-variable "base" {
-  default = "default"
-}
-
 variable "name" {}
 
 variable "locations" {
@@ -24,7 +20,7 @@ variable "additional_public_keys_path" {
 variable "internal_domain" {}
 
 variable "network" {
-  type    = map(string)
+  type    = map
   default = {}
 }
 

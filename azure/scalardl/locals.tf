@@ -1,11 +1,10 @@
 locals {
   network = {
-    cidr      = data.terraform_remote_state.network.outputs.network_cidr
-    name      = data.terraform_remote_state.network.outputs.network_name
-    dns       = data.terraform_remote_state.network.outputs.dns_zone_id
-    id        = data.terraform_remote_state.network.outputs.network_id
-    region    = data.terraform_remote_state.network.outputs.region
-    locations = join(",", data.terraform_remote_state.network.outputs.locations)
+    cidr     = data.terraform_remote_state.network.outputs.network_cidr
+    name     = data.terraform_remote_state.network.outputs.network_name
+    dns      = data.terraform_remote_state.network.outputs.dns_zone_id
+    id       = data.terraform_remote_state.network.outputs.network_id
+    location = data.terraform_remote_state.network.outputs.location
 
     image_id = data.terraform_remote_state.network.outputs.image_id
 
@@ -23,5 +22,8 @@ locals {
     green_subnet_id   = data.terraform_remote_state.network.outputs.subnet_map["scalardl_green"]
   }
 
-  database = lookup(var.scalardl, "database", "cassandra")
+  cassandra = {
+    start_on_initial_boot = data.terraform_remote_state.cassandra.outputs.cassandra_start_on_initial_boot
+    provision_ids         = join(",", data.terraform_remote_state.cassandra.outputs.cassandra_provision_ids)
+  }
 }

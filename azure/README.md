@@ -13,12 +13,9 @@ This example will deploy a simple Scalar DL environment in the Japaneast region 
 * An Azure VPC with Resource Group
 * DNS Zone for internal host lookup
 * 3 Scalar DL instances
-* With Cassandra option (default):
-  * 3 Cassandra instances
-  * 1 Cassy instance
-  * 1 Reaper instance
-* With Cosmos DB option:
-  * 1 Cosmos DB account
+* 3 Cassandra instances
+* 1 Cassy instance
+* 1 Reaper instance
 * 3 Envoy instances with a network load balancer (public)
 * 1 Bastion instance with a public IP
 * 1 Monitor instance
@@ -33,19 +30,8 @@ $ az login
 
 ### Create network resources
 
-First you need to choose what database you use as a backend. This example supports two options: Cassandra and Cosmos DB.
-
-If you choose Cosmos DB, please update `azure/network/example.tfvars` before creating network resources.
-This enables Cosmos DB endpoints in the subnets where Scalar DL will be deployed to.
-
-```terraform
-use_cosmosdb = true
-```
-
-Then, follow the steps below.
-
 ```console
-$ cd azure/network
+$ cd examples/azure/network
 
 # Generate a test key-pair
 $ ssh-keygen -b 2048 -t rsa -f ./example_key -q -N ""
@@ -57,7 +43,7 @@ $ ssh-add example_key
 
 # Optionally, you may want to create a file named `additional_public_keys` that contains multiple ssh public keys (one key per line) to allow other admins to access nodes created by the following `terraform apply`.
 # the file should look like below
-# cat azure/network/additional_public_keys
+# cat examples/azure/network/additional_public_keys
 # ssh-rsa AAAAB3Nza..... admin1
 # ssh-rsa...... admin2
 
@@ -67,68 +53,19 @@ $ terraform init
 $ terraform apply -var-file example.tfvars
 ```
 
-### Create database resources
-
-#### Cassandra
-
-Before creating Cassandra resources with `terraform apply`, you probably need to configure for Cassy to manage backups of Cassandra data.
-
-The first thing you need to do for Cassy is create a storage account in the same resource group as the network resource created in the previous section and create a blob type container in the storage account.
-
-Then, update `example.tfvars` with the container URL as follows.
-
-```
-cassy = {
-  storage_base_uri     = "https://yourstorageaccountname.blob.core.windows.net/your-container-name"
-  storage_type         = "azure_blob"
-}
-```
-
-If you don't need Cassy, you can disable it by setting its `resource_count` to zero.
-
-```
-cassy = {
-  resource_count = 0
-}
-```
-
-For more information on Cassy, please refer to [CassySetup](../../docs/CassySetup.md).
-
-Now it's ready to run the terraform commands:
+### Create Cassandra resources
 
 ```console
-$ cd azure/cassandra
+$ cd examples/azure/cassandra
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
 ```
 
-Please make sure to start all the Cassandra nodes since Cassandra doesn't start on the initial boot by default.
-
-#### Cosmos DB
-
-To create a Cosmos DB account on your Azure account, please just run the following command.
-
-```console
-$ cd azure/cosmosdb
-
-$ terraform init
-$ terraform apply
-```
-
 ### Create Scalar DL resources
 
-If you chose Cosmos DB, please uncomment the following line in `azure/scalardl/example.tfvars`.
-The information needed to connect to the Cosmos DB is fetched from the state in `azure/cosmosdb`.
-
-```terraform
-  # database = "cosmos"
-```
-
-If you use Cassandra, you don't have to update the tfvars file unless you have changed the credentials or other information.
-
 ```console
-$ cd azure/scalardl
+$ cd examples/azure/scalardl
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
@@ -137,7 +74,7 @@ $ terraform apply -var-file example.tfvars
 ### Create Monitor resources
 
 ```console
-$ cd azure/monitor
+$ cd examples/azure/monitor
 
 $ terraform init
 $ terraform apply -var-file example.tfvars
@@ -171,8 +108,8 @@ location = West US
 network_cidr = 10.42.0.0/16
 network_id = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/tei-azure-1rpvoeq/providers/Microsoft.Network/virtualNetworks/tei-azure-1rpvoeq
 network_name = tei-azure-1rpvoeq
-private_key_path = /Users/tei/work/src/scalar/scalar-terraform-examples/azure/network/example_key
-public_key_path = /Users/tei/work/src/scalar/scalar-terraform-examples/azure/network/example_key.pub
+private_key_path = /Users/tei/work/src/scalar/scalar-terraform-release/examples/azure/network/example_key
+public_key_path = /Users/tei/work/src/scalar/scalar-terraform-release/examples/azure/network/example_key.pub
 subnet_map = {
   "cassandra" = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/tei-azure-1rpvoeq/providers/Microsoft.Network/virtualNetworks/tei-azure-1rpvoeq/subnets/cassandra"
   "private" = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/tei-azure-1rpvoeq/providers/Microsoft.Network/virtualNetworks/tei-azure-1rpvoeq/subnets/private"
@@ -187,7 +124,13 @@ user_name = centos
 
 ```
 $ terraform output
+cassandra_provision_ids = [
+  "4019088576544490630",
+  "656319024837932240",
+  "2469094098071954264",
+]
 cassandra_resource_count = 3
+cassandra_start_on_initial_boot = false
 ```
 
 ### Scalar DL

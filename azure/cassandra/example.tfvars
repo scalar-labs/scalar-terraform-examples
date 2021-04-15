@@ -19,17 +19,12 @@ cassandra = {
 }
 
 cassy = {
-  # image_tag                     = "1.2.0"
+  # image_tag                     = "v1.0.0"
   # resource_type                 = "Standard_B2s"
   # resource_count                = "1"
   # resource_root_volume_size     = "64"
   # enable_tdagent                = "true"
   # enable_accelerated_networking = "false"
-  # use_managed_identity          = "true"
-
-  # Required if use_managed_identity = "true" and resource_count > 0
-  storage_base_uri = "https://yourstorageaccountname.blob.core.windows.net/your-container-name"
-  storage_type     = "azure_blob"
 }
 
 reaper = {
@@ -38,7 +33,7 @@ reaper = {
   # replication_factor            = "3"
   # resource_count                = "1"
   # enable_tdagent                = "true"
-  # cassandra_username            = "cassandra"
-  # cassandra_password            = "cassandra"
+  # cassandra_username            = ""
+  # cassandra_password            = ""
   # enable_accelerated_networking = "false"
 }
