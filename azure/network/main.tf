@@ -1,5 +1,6 @@
 module "network" {
-  source = "git::https://github.com/scalar-labs/scalar-terraform.git//modules/azure/network?ref=master"
+  # source = "git@github.com:scalar-labs/scalar-terraform.git//modules/azure/network?ref=v1.0.0"
+  source = "../../../modules/azure/network"
 
   # Required Variables
   name             = var.name
@@ -12,5 +13,4 @@ module "network" {
   # Optional Variables
   network                     = var.network
   additional_public_keys_path = var.additional_public_keys_path
-  use_cosmosdb                = var.use_cosmosdb
 }
