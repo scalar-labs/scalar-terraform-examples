@@ -34,12 +34,8 @@ output "public_key_path" {
   value = module.network.public_key_path
 }
 
-output "region" {
-  value = module.network.region
-}
-
-output "locations" {
-  value = module.network.locations
+output "location" {
+  value = module.network.location
 }
 
 output "user_name" {
@@ -56,8 +52,4 @@ output "ssh_config" {
 
 output "internal_domain" {
   value = module.network.internal_domain
-}
-
-output "inventory_ini" {
-  value = module.network.inventory_ini
 }

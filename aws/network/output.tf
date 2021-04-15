@@ -34,10 +34,6 @@ output "key_name" {
   value = module.network.key_name
 }
 
-output "region" {
-  value = var.region
-}
-
 output "locations" {
   value = module.network.locations
 }
@@ -60,8 +56,4 @@ output "internal_domain" {
 
 output "custom_tags" {
   value = var.custom_tags
-}
-
-output "inventory_ini" {
-  value = module.network.inventory_ini
 }
