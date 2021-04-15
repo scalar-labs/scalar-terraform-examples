@@ -1,6 +1,5 @@
 module "ca" {
-  # source = "git@github.com:scalar-labs/scalar-terraform.git//modules/aws/ca?ref=v1.0.0"
-  source = "../../../modules/aws/ca"
+  source = "git@github.com:scalar-labs/scalar-terraform.git//modules/aws/ca?ref=1.3"
 
   # Required Variables (Use remote state)
   network = local.network
