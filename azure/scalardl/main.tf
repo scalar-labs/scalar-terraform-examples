@@ -1,6 +1,5 @@
 module "scalardl" {
-  # source = "git@github.com:scalar-labs/scalar-terraform.git//modules/azure/scalardl?ref=v1.0.0"
-  source = "../../../modules/azure/scalardl"
+  source = "git@github.com:scalar-labs/scalar-terraform.git//modules/azure/scalardl?ref=1.4"
 
   # Required Variables (Use remote state)
   network   = local.network
