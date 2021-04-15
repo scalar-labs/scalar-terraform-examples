@@ -4,8 +4,8 @@ This example will deploy a simple Scalar DL environment in the Tokyo region with
 * This document is for internal use of Scalar DL Terraform modules for AWS. If you are interested in the modules please take a look at [here](.https://github.com/scalar-labs/scalar-terraform/blob/master/modules/aws)
 
 ## Prerequisites
-* Terraform >= 0.12.x
-* Ansible 2.8
+* Terraform >= 0.14.x
+* Ansible >= 2.8.x
 * AWS CLI
 * ssh-agent with private key
 * An S3 bucket URI to store Cassandra backups with Cassy
