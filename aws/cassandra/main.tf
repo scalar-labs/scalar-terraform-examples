@@ -1,5 +1,5 @@
 module "cassandra" {
-  source = "git@github.com:scalar-labs/scalar-terraform.git//modules/aws/cassandra?ref=1.3"
+  source = "git@github.com:scalar-labs/scalar-terraform.git//modules/aws/cassandra?ref=v1.3.3"
 
   # Required Variables (Use network remote state)
   network = local.network
