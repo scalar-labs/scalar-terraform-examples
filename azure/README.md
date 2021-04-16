@@ -1,10 +1,10 @@
 # Azure Scalar DL Example
 This example will deploy a simple Scalar DL environment in the Japaneast region with your Azure account. If you want to use another region or store the tfstate on Azure you need to update `backend.tf`, `examples.tfvars` and `remote.tf` of each module.
 
-* This document is for internal use of Scalar DL Terraform modules for Azure. If you are interested in the modules please take a look at [here](../../modules/azure)
+* This document is for internal use of Scalar DL Terraform modules for Azure. If you are interested in the modules please take a look at [here](https://github.com/scalar-labs/scalar-terraform/blob/master/modules/azure)
 
 ## Prerequisites
-* Terraform >= 0.12.x
+* Terraform >= 0.14.x
 * Ansible >= 2.8.x
 * Azure CLI
 * ssh-agent with private key
@@ -92,7 +92,7 @@ cassy = {
 }
 ```
 
-For more information on Cassy, please refer to [CassySetup](../../docs/CassySetup.md).
+For more information on Cassy, please refer to [CassySetup](https://github.com/scalar-labs/scalar-terraform/blob/master/docs/CassySetup.md).
 
 Now it's ready to run the terraform commands:
 
