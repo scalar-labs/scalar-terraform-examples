@@ -1,5 +1,5 @@
 module "network" {
-  source = "git@github.com:scalar-labs/scalar-terraform.git//modules/aws/network?ref=1.3"
+  source = "git@github.com:scalar-labs/scalar-terraform.git//modules/aws/network?ref=v1.3.3"
 
   # Required Variables
   name             = var.name
