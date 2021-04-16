@@ -4,7 +4,7 @@ This example will deploy a simple Scalar DL environment in the Japaneast region 
 * This document is for internal use of Scalar DL Terraform modules for Azure. If you are interested in the modules please take a look at [here](https://github.com/scalar-labs/scalar-terraform/tree/master/modules/azure)
 
 ## Prerequisites
-* Terraform >= 0.12.x
+* Terraform >= 0.14.x
 * Ansible >= 2.8.x
 * Azure CLI
 * ssh-agent with private key
