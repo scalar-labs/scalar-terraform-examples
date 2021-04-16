@@ -1,7 +1,7 @@
 # AWS Scalar DL Example
 This example will deploy a simple Scalar DL environment in the Tokyo region with your AWS account. If you want to use another region or store the tfstate on S3 you need to update `backend.tf`, `examples.tfvars` and `remote.tf` of each module.
 
-* This document is for internal use of Scalar DL Terraform modules for AWS. If you are interested in the modules please take a look at [here](../../modules/aws)
+* This document is for internal use of Scalar DL Terraform modules for AWS. If you are interested in the modules please take a look at [here](https://github.com/scalar-labs/scalar-terraform/tree/master/modules/aws)
 
 ## Prerequisites
 * Terraform >= 0.12.x
@@ -55,7 +55,7 @@ $ terraform init
 $ terraform apply -var-file example.tfvars
 ```
 
-To add tags to resources you create with scalar-terraform, please refer to [custom tags](../../docs/CustomTags.md).
+To add tags to resources you create with scalar-terraform, please refer to [custom tags](https://github.com/scalar-labs/scalar-terraform/blob/master/docs/CustomTags.md).
 
 ### Create Cassandra resources
 
@@ -76,7 +76,7 @@ cassy = {
 }
 ```
 
-For more information on Cassy, please refer to [CassySetup](../../docs/CassySetup.md).
+For more information on Cassy, please refer to [CassySetup](https://github.com/scalar-labs/scalar-terraform/blob/master/docs/CassySetup.md).
 
 Then run the terraform command:
 
