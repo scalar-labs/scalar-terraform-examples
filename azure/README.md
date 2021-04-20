@@ -107,7 +107,7 @@ Please make sure to start all the Cassandra nodes since Cassandra doesn't start 
 
 #### Cosmos DB
 
-To create a Cosmos DB account on your Azure account, please just run the following command.
+To create a Cosmos DB account on your Azure account, please run the following command. A Cosmos DB Account will be created in the resouce group created by the `network` module.
 
 ```console
 $ cd azure/cosmosdb
@@ -116,20 +116,48 @@ $ terraform init
 $ terraform apply
 ```
 
+In the output of `terraform apply` command, the `cosmosdb_account_endpoint` and the `cosmosdb_account_primary_master_key` are used to configure Scalar DL in the next section. Please take a note of them.
+
 ### Create Scalar DL resources
 
-If you chose Cosmos DB, please uncomment the following line in `azure/scalardl/example.tfvars`.
-The information needed to connect to the Cosmos DB is fetched from the state in `azure/cosmosdb`.
-
-```terraform
-  # database = "cosmos"
-```
-
-If you use Cassandra, you don't have to update the tfvars file unless you have changed the credentials or other information.
+Before running the terraform command to create Scalar DL resources, you need to prepare an environment file for the container configuration which will be loaded by `docker-compose`.
+The default file name is `scalardl_conatainer.env`. Please copy the example file to that name.
 
 ```console
 $ cd azure/scalardl
+$ cp example.scalardl_container.env scalardl_container.env
+```
 
+Then, update the contents of the file.
+
+* Cassandra
+
+    To use Cassandra, you can keep the contents as long as you use the default settings.
+
+    ```
+    SCALAR_DB_STORAGE=cassandra
+    SCALAR_DB_CONTACT_POINTS=cassandra-lb.internal.scalar-labs.com
+    SCALAR_DB_CONTACT_PORT=9042
+    SCALAR_DB_USERNAME=cassandra
+    SCALAR_DB_PASSWORD=cassandra
+    ```
+
+* Cosmos DB
+
+    To use Cosmos DB, you should find the URL of the account endpoint and the master key in the output of the `cosmosdb` module. You can get them at any time by running `terraform output` in the `cosmosdb` directory. Please specify the endpoint URL as `SCALAR_DB_CONTACT_POINTS` and the master key as `SCALAR_DB_PASSWORD`.
+    `SCALAR_DB_STORAGE` must be `cosmos`. `SCALAR_DB_CONTACT_PORT` and `SCALAR_DB_USERNAME` are not used for Cosmos DB, so you can keep them blank.
+
+    ```
+    SCALAR_DB_STORAGE=cosmos
+    SCALAR_DB_CONTACT_POINTS=https://ym-test-0ezymxy-cosmosdb.documents.azure.com:443/
+    SCALAR_DB_CONTACT_PORT=
+    SCALAR_DB_USERNAME=
+    SCALAR_DB_PASSWORD=2b7eqe50MjvFFVLIHWKg1AKOzZ1Eyzbx5DhiB33cySzwXYD1MZxF2PT1xyoqzkFKqLvbJ2FwyaaergJ1a0bwCw==
+    ```
+
+Now it's ready to run `terraform apply`.
+
+```console
 $ terraform init
 $ terraform apply -var-file example.tfvars
 ```
