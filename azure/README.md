@@ -121,7 +121,7 @@ In the output of `terraform apply` command, the `cosmosdb_account_endpoint` and 
 ### Create Scalar DL resources
 
 Before running the terraform command to create Scalar DL resources, you need to prepare an environment file for the container configuration which will be loaded by `docker-compose`.
-The default file name is `scalardl_conatainer.env`. Please copy the example file to that name.
+The default file name is `scalardl_container.env`. Please copy the example file to that name.
 
 ```console
 $ cd azure/scalardl

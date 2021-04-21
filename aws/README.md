@@ -101,11 +101,11 @@ If you plan to use DynamoDB, there is no need to create DynamoDB resources in ad
 ### Create Scalar DL resources
 
 Before running the terraform command to create Scalar DL resources, you need to prepare an environment file for the container configuration which will be loaded by `docker-compose`.
-The default file name is `scalardl_conatainer.env`. Please copy the example file to that name.
+The default file name is `scalardl_container.env`. Please copy the example file to that name.
 
 ```console
 $ cd aws/scalardl
-$ cp example.scalardl_container.env scalardl_conatainer.env
+$ cp example.scalardl_container.env scalardl_container.env
 ```
 
 Then, update the contents of the file.
