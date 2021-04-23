@@ -116,7 +116,7 @@ $ terraform init
 $ terraform apply
 ```
 
-In the output of `terraform apply` command, the `cosmosdb_account_endpoint` and the `cosmosdb_account_primary_master_key` are used to configure Scalar DL in the next section. Please take a note of them.
+In the output of `terraform apply` command, you will see  `cosmosdb_account_endpoint` and `cosmosdb_account_primary_master_key`. Please take note of them since they are used to configure Scalar DL in the next section. 
 
 ### Create Scalar DL resources
 
@@ -145,7 +145,7 @@ Then, update the contents of the file.
 * Cosmos DB
 
     To use Cosmos DB, you should find the URL of the account endpoint and the master key in the output of the `cosmosdb` module. You can get them at any time by running `terraform output` in the `cosmosdb` directory. Please specify the endpoint URL as `SCALAR_DB_CONTACT_POINTS` and the master key as `SCALAR_DB_PASSWORD`.
-    `SCALAR_DB_STORAGE` must be `cosmos`. `SCALAR_DB_CONTACT_PORT` and `SCALAR_DB_USERNAME` are not used for Cosmos DB, so you can keep them blank.
+    `SCALAR_DB_STORAGE` must be `cosmos`. `SCALAR_DB_CONTACT_PORT` and `SCALAR_DB_USERNAME` are not used for Cosmos DB, so you can leave them blank.
 
     ```
     SCALAR_DB_STORAGE=cosmos

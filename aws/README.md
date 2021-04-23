@@ -96,7 +96,7 @@ Please make sure to start all the Cassandra nodes since Cassandra doesn't start 
 
 #### DyanmoDB
 
-If you plan to use DynamoDB, there is no need to create DynamoDB resources in advance before creating Scalar DL resources. If you configure the `scalardl` module to use DyanmoDB, tables will be created in the specified region.
+If you plan to use DynamoDB, there is no need to create DynamoDB resources in advance before creating Scalar DL resources. In a later section, please configure the `scalardl` module to use DyanmoDB, then DynamoDB tables will be created in the specified region.
 
 ### Create Scalar DL resources
 
