@@ -2,6 +2,10 @@ output "bastion_ip" {
   value = module.network.bastion_ip
 }
 
+output "bastion_security_group_id" {
+  value = module.network.bastion_security_group_id
+}
+
 output "network_cidr" {
   value = module.network.network_cidr
 }
