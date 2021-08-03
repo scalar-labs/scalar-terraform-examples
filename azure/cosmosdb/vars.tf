@@ -4,7 +4,7 @@ variable "use_kubernetes" {
   default = false
 }
 
-variable "is_virtual_network_filter_enabled" {
+variable "enable_virtual_network_filter" {
   type    = bool
   default = true
 }

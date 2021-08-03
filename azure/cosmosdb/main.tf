@@ -5,7 +5,7 @@ module "cosmosdb" {
   network = local.network
 
   # Optional Variables
-  allowed_subnet_ids                = local.allowed_subnet_ids
-  allowed_cidrs                     = var.allowed_cidrs
-  is_virtual_network_filter_enabled = var.is_virtual_network_filter_enabled
+  allowed_subnet_ids            = local.allowed_subnet_ids
+  allowed_cidrs                 = var.allowed_cidrs
+  enable_virtual_network_filter = var.enable_virtual_network_filter
 }
