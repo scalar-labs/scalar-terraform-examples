@@ -7,7 +7,10 @@ locals {
     region    = data.terraform_remote_state.network.outputs.region
     locations = join(",", data.terraform_remote_state.network.outputs.locations)
 
-    image_id = data.terraform_remote_state.network.outputs.image_id
+    image_id        = data.terraform_remote_state.network.outputs.image_id
+    vm_os_publisher = data.terraform_remote_state.network.outputs.vm_os_publisher
+    vm_os_offer     = data.terraform_remote_state.network.outputs.vm_os_offer
+    vm_os_sku       = data.terraform_remote_state.network.outputs.vm_os_sku
 
     bastion_ip           = data.terraform_remote_state.network.outputs.bastion_ip
     bastion_provision_id = data.terraform_remote_state.network.outputs.bastion_provision_id
