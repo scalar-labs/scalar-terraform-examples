@@ -26,6 +26,18 @@ output "image_id" {
   value = module.network.image_id
 }
 
+output "vm_os_publisher" {
+  value = module.network.vm_os_publisher
+}
+
+output "vm_os_offer" {
+  value = module.network.vm_os_offer
+}
+
+output "vm_os_sku" {
+  value = module.network.vm_os_sku
+}
+
 output "bastion_provision_id" {
   value = module.network.bastion_provision_id
 }
