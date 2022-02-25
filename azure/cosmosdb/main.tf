@@ -1,5 +1,5 @@
 module "cosmosdb" {
-  source = "git::https://github.com/scalar-labs/scalar-terraform.git//modules/azure/cosmosdb?ref=master"
+  source = "git::https://github.com/scalar-labs/scalar-terraform.git//modules/azure/cosmosdb?ref=upgrade/k8s_version"
 
   # Required Variables
   network = local.network
