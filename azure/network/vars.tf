@@ -10,7 +10,7 @@ variable "region" {
 }
 
 variable "locations" {
-  type    = tolist(string)
+  type    = list(string)
   default = []
 }
 

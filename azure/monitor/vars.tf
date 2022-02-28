@@ -9,7 +9,7 @@ variable "monitor" {
 }
 
 variable "targets" {
-  type = tolist(string)
+  type = list(string)
   default = [
     "cassandra",
     "scalardl",

@@ -10,6 +10,6 @@ variable "enable_virtual_network_filter" {
 }
 
 variable "allowed_cidrs" {
-  type    = tolist(string)
+  type    = list(string)
   default = []
 }
